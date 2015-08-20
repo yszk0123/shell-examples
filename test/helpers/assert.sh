@@ -5,17 +5,36 @@ color_green='\e[32m'
 color_red='\e[31m'
 color_reset='\e[m'
 
+function _assert_inc_successes() {
+  printf "${color_green}.${color_green}"
+  assert_successes=$(( assert_successes + 1 ))
+}
+
+function _assert_inc_failures() {
+  echo "${color_red}$1${color_reset}"
+  assert_failures=$(( assert_failures + 1 ))
+}
+
 function assert_equals() {
   local actual=$1
   local expected=$2
   local message=$3
 
   if [ "$expected" = "$actual" ]; then
-    printf "${color_green}.${color_green}"
-    assert_successes=$(( assert_successes + 1 ))
+    _assert_inc_successes
   else
-    echo "${color_red}${message:-expected '$expected', actual '$actual'}${color_reset}"
-    assert_failures=$(( assert_failures + 1 ))
+    _assert_inc_failures ${message:-expected '$expected', actual '$actual'}
+  fi
+}
+
+function assert_ok() {
+  local expression=$1
+  local message=$2
+
+  if [ $1 -ne 0 ]; then
+    _assert_inc_successes
+  else
+    _assert_inc_failures ${message:-not ok}
   fi
 }
 
