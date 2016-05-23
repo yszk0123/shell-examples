@@ -1,0 +1,2 @@
+# $ crontab crontab.txt
+00-59/1 * * * * /bin/date >> /Users/yszk0123/tmp/crontab.out.txt
