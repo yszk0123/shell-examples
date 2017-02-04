@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 hello() {
   unset -f hello
   # source 'path/to/heavy/scripts'

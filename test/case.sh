@@ -1,7 +1,8 @@
+#!/bin/bash -e
 # cf. [bash - How do I prompt for input in a Linux shell script? - Stack Overflow](http://stackoverflow.com/questions/226703/how-do-i-prompt-for-input-in-a-linux-shell-script)
 
 while true; do
-  read -p 'Enter [YyNn]' yn
+  read -r -p 'Enter [YyNn]' yn
   case $yn in
     [Yy]* ) echo 'yes'; break ;;
     [Nn]* ) echo 'no'; break ;;

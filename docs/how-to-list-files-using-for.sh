@@ -1,3 +1,5 @@
-for file in `ls -1 *.txt`; do
+#!/bin/bash -e
+
+for file in ./*.txt; do
   echo "file = $file"
 done

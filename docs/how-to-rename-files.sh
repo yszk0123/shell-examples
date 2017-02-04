@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/bash -e
 
-rename .htm .html *.htm
+rename .htm .html ./*.htm
 rename foo- bar- foo-*.txt
 rename baz "" baz*.txt
-rename "" a- *.txt
+rename "" a- ./*.txt

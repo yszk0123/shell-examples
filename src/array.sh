@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash -e
 array=(123 "foo bar" baz)
 echo "array[0]: ${array[0]}"
 echo "array[1]: ${array[1]}"
